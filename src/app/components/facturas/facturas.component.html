@@ -1,0 +1,48 @@
+<div class="row justify-content-center align-items-center" *ngIf="facturas">
+
+<!-- Cabecera-->
+<br>
+<div class="col-sm-12 col-md-11">
+    <div class="table-responsive mt-2">
+        <table class="table table-bordered shadow align-middle text-center">
+            <!-- Facturas-->
+            <tr style="background-color: #8F141B;" class="text-white">
+                <th [attr.colspan]="14">Facturas</th>
+            </tr>
+            <tr style="background-color: #DBE0E2">
+                <th>Id Factura</th>
+                <th>Numero de Factura</th>
+                <th>Fecha</th>
+                <th>Tipo de Pago</th>
+                <th>Documento cliente</th>
+                <th>Nombre Cliente</th>
+                <th>Subtotal</th>
+                <th>Descuento</th>
+                <th>Iva</th>
+                <th>Total de Descuento</th>
+                <th>Total de Impuesto</th>
+                <th>Total</th>
+                <th>Agregar Productos </th>
+                <th>Eliminar Factura </th>
+            </tr>
+            <tr *ngFor="let r of facturas">
+                <td>{{r.idFactura}}</td>
+                <td>{{r.numeroFactura}}</td>
+                <td>{{r.fecha}}</td>
+                <td>{{r.tipoPago}}</td>
+                <td>{{r.documentoCliente}}</td>
+                <td>{{r.nombreCliente}}</td>
+                <td>{{r.subtotal}}</td>
+                <td>{{r.descuento}}</td>
+                <td>{{r.iva}}</td>
+                <td>{{r.totalDescuento}}</td>
+                <td>{{r.totalImpuesto}}</td>
+                <td>{{r.total}}</td>
+                <td><button class= "btn btn-sm btn-warning" (click)="OnClickAdicionar(r.idFactura == null ? 0: r.idFactura)"> Adicionar </button></td> 
+                <!-- <td><a routerLink="['/adicionar/']">Adicionar Productos</a></td> -->
+                <td><button class= "btn btn-sm btn-danger"  (click)="OnClickEliminar(r.idFactura == null ? 0: r.idFactura)"> Eliminar </button> </td>
+            </tr>
+        </table>
+    </div>
+</div>
+

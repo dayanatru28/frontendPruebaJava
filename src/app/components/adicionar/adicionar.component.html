@@ -1,0 +1,65 @@
+<div class="row justify-content-center align-items-center" *ngIf="detalleFiltrado">
+
+    <!-- Cabecera-->
+    <br>
+    <div class="col-sm-12 col-md-11">
+        <div class="table-responsive mt-2">
+            <table class="table table-bordered shadow align-middle text-center">
+                <!-- Facturas-->
+                <tr style="background-color: #8F141B;" class="text-white">
+                    <th [attr.colspan]="14">Productos Comprados</th>
+                </tr>
+                <tr style="background-color: #DBE0E2">
+                    <th>IdDetalle</th>
+                    <th>IdFactura</th>
+                    <th>IdProducto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+
+                </tr>
+                <tr *ngFor="let r of detalleFiltrado">
+                    <td>{{r.idDetalle}}</td>
+                    <td>{{r.idFactura}}</td>
+                    <td>{{r.idProducto}}</td>
+                    <td>{{r.idCantidad}}</td>
+                    <td>{{r.precioUnitario}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div> 
+    
+
+<div class=" container">
+    <div class="row-mt-5">
+        <div class="col-md-4 mx-auto">
+            <br>
+            <p><b>Agregue el producto que desea</b></p>
+            <form (ngSubmit)="onCreate()">
+                <div class="form-group">
+                    <label>Id Producto</label>
+                    <br>
+                    <select [(ngModel)]="idProducto" id="idProducto" name="idProducto">
+                        <option *ngFor="let r of productos" [ngValue]=r.idProducto> {{r.producto}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cantidad">Id Cantidad</label>
+                    <input type="number" class="form-control" id="cantidad" name="cantidad"
+                    [(ngModel)]="cantidad">
+                </div>
+                <div class="form-group">
+                    <label for="precioUnitario">precio Unitario</label>
+                    <input type="number" class="form-control" id="precioUnitario" name="precioUnitario"
+                    [(ngModel)]="precioUnitario">
+                </div>
+
+                <br>
+                <button class="btn btn-success"> Agregar</button>
+                <br>
+            </form>
+        </div>
+    </div>
+
+</div>
+    

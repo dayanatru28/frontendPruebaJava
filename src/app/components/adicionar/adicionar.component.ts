@@ -88,7 +88,7 @@ export class AdicionarComponent {
 
   onUpdate(total:number):void{
     console.log(total);
-
+  // Total calculado para adicionar en el update
   }
 
 
